@@ -33,8 +33,6 @@ class TypingGameView:
             A string representing what the user typed.
         '''
 
-        # TODO: Prompt the user to type. 
-        # Hint: Look into 'input', a built-in Python function
         return input("\nStart typing here: ")
 
     def display_results(self, speed: float, accuracy: float) -> None:
@@ -48,8 +46,6 @@ class TypingGameView:
         Returns:
             None
         '''
-
-        # TODO: Print the user's speed and accuracy to the console
         print(f"\nSpeed: {speed} WPM")
         print(f"Accuracy: {accuracy}%")
     

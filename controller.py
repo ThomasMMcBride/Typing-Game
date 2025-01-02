@@ -6,7 +6,6 @@ class TypingGameController:
     Represents the controller for the Typing Game.
     '''
 
-    
     def __init__(self):
         '''
         Constructs a default controller for the Typing Game.

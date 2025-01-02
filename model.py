@@ -13,9 +13,8 @@ class TypingGameModel:
         '''
         Constructs a typing game model.
         '''
-        # TODO: Obtain sentences from local .txt file
-        # Hint: Look into 'open' which is a built-in python function
-        with open("____TODO_____") as sentence_file:
+        # Obtain sentences from local file
+        with open("sentences.txt") as sentence_file:
             sentences = sentence_file.readlines() 
             sentences = [sentence.strip() for sentence in sentences]
         self.sentences = sentences
@@ -37,8 +36,6 @@ class TypingGameModel:
         Returns:
             The sentence the user must type 
         '''
-        # TODO: Return the selected sentence within this class
-        # Hint: use self. to access the fields of this class
         return self.selected_sentence
 
     def start_timer(self) -> None:
@@ -52,8 +49,6 @@ class TypingGameModel:
         Returns:
             None
         '''
-        # TODO: Set the self.start_time field to the current time
-        # Hint: Look into the time module for Python
         self.start_time = time.time()
 
     def stop_timer(self):
@@ -67,11 +62,9 @@ class TypingGameModel:
         Returns:
             None
         '''
-        # TODO: Set the self.end_time field to the current time
-        # Hint: Should be very similar to the implementation of start_timer()
         self.end_time = time.time()
 
-    def calculate_speed(self, user_input: str) -> float:
+    def calculate_speed(self, user_input) -> float:
         '''
         Provides the player's typing speed in words per minute.
 
@@ -84,11 +77,10 @@ class TypingGameModel:
         time_taken = self.end_time - self.start_time
         word_count = len(user_input.split())
 
-        # TODO: Using the time_taken(in seconds) and the word_count, calculate the speed in words per minute
         speed = word_count / (time_taken / 60)
         return round(speed, 2)
 
-    def calculate_accuracy(self, user_input: str) -> float:
+    def calculate_accuracy(self, user_input):
         '''
         Provides the player's accuracy in typing the provided sentence.
 
@@ -101,8 +93,5 @@ class TypingGameModel:
         '''
         correct_chars = sum(a == b for a, b in zip(self.selected_sentence, user_input))
         total_chars = len(self.selected_sentence)
-
-        # TODO: Calculate the user's accuracy using the correct_chars and total_chars variables.
-        # Also, try to handle the division by 0 case where total_chars is 0
         accuracy = (correct_chars / total_chars) * 100 if total_chars > 0 else 0
         return round(accuracy, 2)
